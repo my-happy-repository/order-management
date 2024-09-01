@@ -15,7 +15,7 @@ class OrderService(
             id = 1,
             orderedProducts = emptyList(),
             totalPrice = 1,
-            state = OrderStatusCode.CREATED,
+            status = OrderStatusCode.CREATED,
         )
     }
 }

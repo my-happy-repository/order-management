@@ -3,6 +3,7 @@ package com.study.ordermanagement.presentation
 import com.study.ordermanagement.application.OrderService
 import com.study.ordermanagement.domain.OrderRequest
 import com.study.ordermanagement.presentation.dto.OrderCreateRequest
+import com.study.ordermanagement.presentation.dto.OrderCreateResponse
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -18,12 +19,13 @@ class OrderController(
     @PostMapping("/orders")
     fun orderProducts(
         @RequestBody orderRequest: OrderCreateRequest,
-    ) {
-        orderService.createOrder(
-            orderRequest =
-            OrderRequest.of(
-                order = orderRequest,
-            ),
+    ): OrderCreateResponse =
+        OrderCreateResponse.toOrderCreateResponse(
+            orderCreate = orderService.createOrder(
+                orderRequest =
+                    OrderRequest.of(
+                        order = orderRequest
+                    )
+            )
         )
-    }
 }

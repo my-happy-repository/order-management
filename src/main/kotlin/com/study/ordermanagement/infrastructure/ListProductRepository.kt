@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Repository
 
 @Repository
-class ListProductRepository {
+class ListProductRepository: ProductRepository {
     @PostConstruct
     fun initProducts() {
         val product1 = Product(id = 1L, name = "상품1", price = 10000, amount = 100)
@@ -19,7 +19,7 @@ class ListProductRepository {
         products.add(product3)
     }
 
-    fun findById(id: Long): Product {
+    override fun findById(id: Long): Product {
         return products.find { product -> product.id == id }
             ?: throw ProductNotFound(
                 status = HttpStatus.NOT_FOUND,
@@ -27,7 +27,7 @@ class ListProductRepository {
             )
     }
 
-    fun findAll(): List<Product> = products
+    override fun findAll(): List<Product> = products
 
     companion object {
         val products: MutableList<Product> = mutableListOf<Product>()
