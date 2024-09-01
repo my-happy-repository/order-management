@@ -11,7 +11,8 @@ class ExceptionAdviceController {
     @ExceptionHandler(OrderManagementException::class)
     fun orderManagementExceptionHandler(exception: OrderManagementException): ExceptionResponse {
         return ExceptionResponse(
-            status = exception.status,
+            httpStatusCode = exception.status.value(),
+            httpStatus = exception.status,
             message = exception.message,
         )
     }

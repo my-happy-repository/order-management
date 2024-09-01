@@ -1,7 +1,9 @@
 package com.study.ordermanagement.infrastructure
 
+import com.study.ordermanagement.domain.OrderManagementException.ProductNotFound
 import com.study.ordermanagement.domain.Product
 import jakarta.annotation.PostConstruct
+import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -18,7 +20,11 @@ class ListProductRepository {
     }
 
     fun findById(id: Long): Product {
-        return products.first { product -> product.id == id } ?: throw RuntimeException("Product with id $id not found")
+        return products.find { product -> product.id == id }
+            ?: throw ProductNotFound(
+                status = HttpStatus.NOT_FOUND,
+                message = "찾으시는 상품이 존재 하지 않습니다"
+            )
     }
 
     fun findAll(): List<Product> = products

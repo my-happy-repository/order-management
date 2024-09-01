@@ -11,7 +11,6 @@ class OrderService(
     private val listProductRepository: ListProductRepository,
 ) {
     fun createOrder(orderRequest: OrderRequest): OrderCreate {
-
         return OrderCreate(
             id = 1,
             orderedProducts = emptyList(),

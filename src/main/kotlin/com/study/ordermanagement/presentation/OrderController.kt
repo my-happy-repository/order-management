@@ -21,9 +21,9 @@ class OrderController(
     ) {
         orderService.createOrder(
             orderRequest =
-                OrderRequest.of(
-                    order = orderRequest,
-                ),
+            OrderRequest.of(
+                order = orderRequest,
+            ),
         )
     }
 }
