@@ -1,7 +1,10 @@
 package com.study.ordermanagement.domain
 
-sealed class OrderManagementException(override val message: String = "") :
-    RuntimeException(message) {
-    data class ProductNotFound(override val message: String) :
-        OrderManagementException()
+sealed class OrderManagementException(
+    val status: Int,
+    override val message: String = "",
+) : RuntimeException(message) {
+
+    class ProductNotFound(status: Int, override val message: String) :
+        OrderManagementException(status, message)
 }

@@ -4,5 +4,5 @@ data class Product(
     val id: Long,
     val name: String,
     val price: Int,
-    val amount: Int,
+    var amount: Int,
 )
