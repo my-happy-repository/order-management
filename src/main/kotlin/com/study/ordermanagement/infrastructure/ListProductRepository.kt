@@ -17,6 +17,10 @@ class ListProductRepository {
         products.add(product3)
     }
 
+    fun findById(id: Long): Product {
+        return products.first { product -> product.id == id } ?: throw RuntimeException("Product with id $id not found")
+    }
+
     fun findAll(): List<Product> = products
 
     companion object {

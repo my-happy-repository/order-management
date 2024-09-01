@@ -2,7 +2,7 @@ package com.study.ordermanagement.presentation
 
 import com.study.ordermanagement.application.OrderService
 import com.study.ordermanagement.domain.OrderRequest
-import com.study.ordermanagement.presentation.dto.OrderCreateRequestDto
+import com.study.ordermanagement.presentation.dto.OrderCreateRequest
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -17,7 +17,7 @@ class OrderController(
     // 주문 상태는 생성, 배송중, 완료, 취소
     @PostMapping("/orders")
     fun orderProducts(
-        @RequestBody orderRequest: OrderCreateRequestDto,
+        @RequestBody orderRequest: OrderCreateRequest,
     ) {
         orderService.createOrder(
             orderRequest =
