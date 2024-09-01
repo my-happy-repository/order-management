@@ -1,8 +1,5 @@
 package com.study.ordermanagement.infrastructure
 
-import org.springframework.stereotype.Repository
+import org.springframework.core.annotation.Order
 
-@Repository
-class OrderRepository {
-
-}
+interface OrderRepository
