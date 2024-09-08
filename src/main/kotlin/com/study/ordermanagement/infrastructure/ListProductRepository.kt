@@ -29,6 +29,11 @@ class ListProductRepository: ProductRepository {
 
     override fun findAll(): List<Product> = products
 
+    override fun update(product: Product): Product {
+        val productIndex = products.indexOfFirst { it.id == product.id }
+        return products.set(productIndex, product)
+    }
+
     companion object {
         val products: MutableList<Product> = mutableListOf<Product>()
     }

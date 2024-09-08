@@ -8,4 +8,5 @@ interface ProductRepository {
 
     fun findById(id: Long): Product?
 
+    fun update(product: Product): Product
 }

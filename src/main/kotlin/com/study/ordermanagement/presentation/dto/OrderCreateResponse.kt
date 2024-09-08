@@ -1,7 +1,7 @@
 package com.study.ordermanagement.presentation.dto
 
 import com.study.ordermanagement.domain.OrderCreate
-import com.study.ordermanagement.domain.OrderStatusCode
+import com.study.ordermanagement.type.OrderStatusCode
 
 data class OrderCreateResponse (
     val id: Long,

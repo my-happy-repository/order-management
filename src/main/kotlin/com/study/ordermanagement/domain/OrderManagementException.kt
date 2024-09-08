@@ -9,4 +9,7 @@ sealed class OrderManagementException(
 
     class ProductNotFound(status: HttpStatus, override val message: String) :
         OrderManagementException(status, message)
+
+    class ProductAmountNotEnoughToOrder(status: HttpStatus, override val message: String) :
+            OrderManagementException(status, message)
 }

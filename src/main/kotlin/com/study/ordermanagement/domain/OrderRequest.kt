@@ -7,11 +7,13 @@ data class OrderRequest(
     val amount: Int,
 ) {
     companion object {
-        fun of(order: OrderCreateRequest): OrderRequest {
-            return OrderRequest(
-                id = order.id,
-                amount = order.amount,
-            )
+        fun of(orders: List<OrderCreateRequest>): List<OrderRequest> {
+            return orders.map { order ->
+                OrderRequest(
+                    id = order.id,
+                    amount = order.amount,
+                )
+            }
         }
     }
 }
